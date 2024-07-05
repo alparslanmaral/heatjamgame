@@ -2,9 +2,21 @@ using UnityEngine;
 
 public class KarakterKontrol : MonoBehaviour
 {
+    private Animator animator;
     public float hareketHizi = 5f;
     public float rotationSpeed = 360f;
+    public GameObject dönmeObjesi; // Yürüme yönüne doðru dönmesini istediðiniz obje
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+
+        // Eðer dönmeObjesi atanmamýþsa, karakterin kendisi dönecek
+        if (dönmeObjesi == null)
+        {
+            dönmeObjesi = gameObject;
+        }
+    }
 
     void Update()
     {
@@ -24,9 +36,15 @@ public class KarakterKontrol : MonoBehaviour
 
         if (movementDirection != Vector3.zero)
         {
+            animator.SetBool("IsMoving", true);
 
             // Hareket yönüne doðru dönme iþlemi
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            dönmeObjesi.transform.rotation = Quaternion.RotateTowards(dönmeObjesi.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
         Vector3 hareket = movementDirection * hareketHizi * Time.deltaTime;
@@ -38,6 +56,7 @@ public class KarakterKontrol : MonoBehaviour
     {
         if (yeniKarakterObject != null)
         {
+            dönmeObjesi = yeniKarakterObject;
         }
         else
         {

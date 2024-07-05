@@ -10,7 +10,7 @@ public class Customer : MonoBehaviour
     {
         Vector3 barPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z); // Adjust the y offset as needed
         heatBarInstance = Instantiate(heatBarPrefab, barPosition, Quaternion.identity);
-        heatBarInstance.transform.SetParent(transform);
+        heatBarInstance.transform.SetParent(transform, false);
 
         heatBarScript = heatBarInstance.GetComponent<HeatBar>();
     }
@@ -19,7 +19,11 @@ public class Customer : MonoBehaviour
     {
         if (heatBarScript != null)
         {
-            heatBarScript.DecreaseHeat(1 * Time.deltaTime); // Adjust decrease rate as needed
+            heatBarScript.IncreaseHeat(1 * Time.deltaTime); // Adjust increase rate as needed
+
+            // Update the position of the heat bar to stay above the customer
+            Vector3 barPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z); // Adjust the y offset as needed
+            heatBarInstance.transform.position = barPosition;
         }
     }
 }
