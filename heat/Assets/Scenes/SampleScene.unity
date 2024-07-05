@@ -9287,7 +9287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyDistance: 4
   objectPrice: 10
-  replacementPrefab: {fileID: 3937202063252448655, guid: fccd0aac77547094cb35054824af8910, type: 3}
+  replacementPrefab: {fileID: 3937202063252448655, guid: 660f1b1b56e39e241a590134d39493cb, type: 3}
   player: {fileID: 1240796150}
 --- !u!65 &1978220658
 BoxCollider:

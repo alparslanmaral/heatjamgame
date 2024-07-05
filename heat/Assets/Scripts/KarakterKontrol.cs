@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class KarakterKontrol : MonoBehaviour
 {
-<<<<<<< Updated upstream
     private Animator animator;
     public float hareketHizi = 5f;
-=======
-    public float hareketHizi = 7f;
->>>>>>> Stashed changes
     public float rotationSpeed = 360f;
     public GameObject dönmeObjesi; // Yürüme yönüne doðru dönmesini istediðiniz obje
 
