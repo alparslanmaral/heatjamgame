@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KarakterZiplama : MonoBehaviour
 {
-    public float ziplamaGucu = 5f; 
+    public float ziplamaGucu = 10f; 
 
     private Rigidbody rb;
     private bool zeminUzerinde;
